@@ -103,23 +103,26 @@ export default function Home() {
             <div className="bg-slate-500 h-[50%] relative">
               <Image src="/images/playlist_ui/ScrollArrowPair.png" alt="" fill className="object-contain scale-98"/>
             </div>
-            <div className="bg-slate-800 h-[50%]">
-
+            <div className="bg-slate-800 h-[50%] relative">
+              <Image src="/images/playlist_ui/Measures.png" alt="" fill className="object-contain scale-35 mx-[-200]"/>
             </div>
           </div>
         </div>
-        <div className="bg-slate-300 w-full h-[75%] flex">
-          <div className="bg-slate-500 w-[10%] flex">
+        <div className="bg-slate-300 w-full h-[75%] flex relative">
+          <div className="w-[1%] h-full ml-[75%] flex z-10 absolute">
+            <Image src="/images/playlist_ui/ScrollBar.png" alt="" fill className="object-contain scale-125 my-[-4]"/>
+          </div>
+          <div className="bg-slate-500 w-[11%] flex relative">
+            <Image src="/images/playlist_ui/PatternList.png" alt="" fill className="object-contain scale-y-[1.005] scale-x-[1.05]"/>
+          </div>
+          <div className="bg-slate-600 w-[1%] flex">
 
           </div>
-          <div className="bg-slate-600 w-[2%] flex">
-
+          <div className="bg-slate-400 w-[10%] flex relative">
+            <Image src="/images/playlist_ui/Tracks.png" alt="" fill className="object-contain scale-y-101"/>
           </div>
-          <div className="bg-slate-300 w-[10%] flex">
-
-          </div>
-          <div className="bg-slate-200 w-[78%] flex">
-
+          <div className="bg-slate-600 w-[78%] flex relative">
+            <Image src="/images/playlist_ui/Arrangement.png" alt="" fill className="object-contain scale-100 scale-x-[1.015]"/>
           </div>
         </div>
       </div>
