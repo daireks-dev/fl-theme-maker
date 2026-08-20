@@ -2,26 +2,26 @@ import Image from "next/image";
 import Mask from "../../components/Mask";
 import Color from "../../components/Color";
 
-const bgColorLightest = "rgb(100 136 139)";
-const bgColorLight = "rgb(100 116 139)";
-const bgColor = "rgb(71 85 105)";
-const bgColorDark = "#444444";
-const bgColorDarkest = "#333333"
+const bgColorLightest = "#5A7474";
+const bgColorLight = "#576268";
+const bgColor = "#414C52";
+const bgColorDark = "#3C464C";
+const bgColorDarkest = "#2E383E"
 
-const accent1 = "#58b056";
-const accent2 = "#e38a36";
+const accent1 = "#7DDB00";
+const accent2 = "#FF9F41";
 
 const tempoColor = "#BBBBBB";
 
-const measureColor1 = "#444444";
-const measureColor2 = "#555555";
-const measureCountColor = "#1E293B"
+const measureColor1 = "#30454F";
+const measureColor2 = "#293F49";
+const measureCountColor = "#1B2932"
 
-const patternListColor = "#444444";
-const trackListColor = "#555555";
+const patternListColor = "#2E3C46";
+const trackListColor = "#475258";
 
-const patternHeadColor = "#472378";
-const patternBodyColor = "#777777";
+const patternHeadColor = "#434F55";
+const patternBodyColor = "#25363E";
 
 export default function Home() {
   return (
@@ -29,66 +29,66 @@ export default function Home() {
       <div className="bg-slate-600 h-[60vh] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-1 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-1 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/Window Buttons.png" alt="" fill className="object-contain scale-80"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLightest }}>
+            <div className="m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLightest }}>
               <Image src="/images/playlist_ui/FileEditAdd.png" alt="" fill className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-3 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-3 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/PlayButtons.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/PlayButtonMask1.png" color={accent2} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/PlayButtonMask2.png" color={bgColorDarkest} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/PlayButtonMask3.png" color={tempoColor} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/Time.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/TimeButtonMask1.png" color={accent2} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/TimeButtonMask2.png" color={bgColorDark} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/TimeButtonMask3.png" color={bgColorLightest} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-2 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-2 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/Visualizers.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/VisualizerMask.png" color={bgColorDark} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-2 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-2 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/Metrics.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/MetricMask.png" color={bgColorDarkest} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/TopRightButtons.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/TRButtonMask.png" color={bgColorDark} className="object-contain scale-95"/>
             </div>
           </div>
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-7 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-7 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/ContextPanel.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/ContentPanelMask.png" color={bgColorDark} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-1 aspect-square relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-1 aspect-square relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/MasterVolume.png" alt="" fill className="object-contain scale-80 my-[1.5] z-1"/>
               <Mask src="/images/ui_masks/VolumeKnobMask.png" color={bgColorDark} className="object-contain scale-80 my-[1.5]"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-1 aspect-square relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-1 aspect-square relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/PitchKnob.png" alt="" fill className="object-contain scale-90 z-1"/>
               <Mask src="/images/ui_masks/PitchKnobMask.png" color={bgColorDark} className="object-contain scale-90"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-4 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/TimeSlider.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/SliderMask.png" color={accent1} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-7 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-7 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/InputOptions.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/InputButtonMask1.png" color={accent2} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/InputButtonMask2.png" color={bgColorDark} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/InputButtonMask3.png" color={bgColorDarkest} className="object-contain scale-95"/>
               <Mask src="/images/ui_masks/InputButtonMask4.png" color={tempoColor} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-7 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-7 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/BottomRightOptions.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/BRButtonMask.png" color={bgColorDark} className="object-contain scale-95"/>
             </div>
-            <div className="outline-1 outline-slate-600 m-[0.25%] flex-3 relative" style={{ backgroundColor: bgColorLight }}>
+            <div className="m-[0.25%] flex-3 relative" style={{ backgroundColor: bgColorLight }}>
               <Image src="/images/playlist_ui/News.png" alt="" fill className="object-contain scale-95 z-1"/>
               <Mask src="/images/ui_masks/NewsMask.png" color={bgColorLightest} className="object-contain scale-95"/>
             </div>
