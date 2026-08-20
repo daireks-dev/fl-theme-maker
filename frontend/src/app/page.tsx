@@ -8,8 +8,8 @@ const bgColor = "rgb(71 85 105)";
 const bgColorDark = "#444444";
 const bgColorDarkest = "#333333"
 
-const accent1 = "58b056";
-const accent2 = "e38a36";
+const accent1 = "#58b056";
+const accent2 = "#e38a36";
 
 const tempoColor = "#BBBBBB";
 
