@@ -224,7 +224,7 @@ export default function Home() {
       </div>
 
       <div className="bg-slate-500 aspect-video h-[30vh]">
-        <Slider min={0} max={360}/>
+        <Slider color="#FF5555"></Slider>
       </div>
     </div>
   );
