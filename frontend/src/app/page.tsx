@@ -2,6 +2,7 @@ import Image from "next/image";
 import Mask from "../../components/Mask";
 import Color from "../../components/Color";
 import { colorModels } from "../../lib/colors";
+import { Slider } from "@/components/ui/slider";
 
 const hue = 180
 const saturation = 0
@@ -223,7 +224,7 @@ export default function Home() {
       </div>
 
       <div className="bg-slate-500 aspect-video h-[30vh]">
-        
+        <Slider min={0} max={360}/>
       </div>
     </div>
   );
