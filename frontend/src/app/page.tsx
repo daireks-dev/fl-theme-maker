@@ -1,79 +1,83 @@
+"use client"
+
 import Image from "next/image";
 import Mask from "../../components/Mask";
 import Color from "../../components/Color";
 import { colorModels } from "../../lib/colors";
 import { Slider } from "@/components/ui/slider";
-
-const hue = 180
-const saturation = 0
-const brightness = 0
-
-//Calculated
-const bgColorLightest = `hsl(
-  ${198 + hue},
-  ${colorModels.bgcolorLightest.saturation(saturation, brightness)}%,
-  ${colorModels.bgcolorLightest.brightness(brightness)}%
-)`;
-const bgColorLight = `hsl(
-  ${198 + hue},
-  ${colorModels.bgcolorLight.saturation(saturation, brightness)}%,
-  ${colorModels.bgcolorLight.brightness(brightness)}%
-)`;
-const bgColor = `hsl(
-  ${198 + hue},
-  ${colorModels.bgColor.saturation(saturation, brightness)}%,
-  ${colorModels.bgColor.brightness(brightness)}%
-)`;
-const bgColorDark = `hsl(
-  ${198 + hue},
-  ${colorModels.bgcolorDark.saturation(saturation, brightness)}%,
-  ${colorModels.bgcolorDark.brightness(brightness)}%
-)`;
-const bgColorDarkest = `hsl(
-  ${198 + hue},
-  ${colorModels.bgcolorDarkest.saturation(saturation, brightness)}%,
-  ${colorModels.bgcolorDarkest.brightness(brightness)}%
-)`;
-
-const measureColor1 = `hsl(
-  ${198 + hue},
-  ${colorModels.measureColor1.saturation(saturation, brightness)}%,
-  ${colorModels.measureColor1.brightness(brightness)}%
-)`;
-const measureColor2 = `hsl(
-  ${198 + hue},
-  ${colorModels.measureColor2.saturation(saturation, brightness)}%,
-  ${colorModels.measureColor2.brightness(brightness)}%
-)`;
-const measureCountColor = `hsl(
-  ${198 + hue},
-  ${colorModels.bgcolorDarkest.saturation(saturation, brightness)}%,
-  ${colorModels.bgcolorDarkest.brightness(brightness)}%
-)`;
-
-const patternListColor = `hsl(
-  ${198 + hue},
-  ${colorModels.patternListColor.saturation(saturation, brightness)}%,
-  ${colorModels.patternListColor.brightness(brightness)}%
-)`;
-const trackListColor = `hsl(
-  ${198 + hue},
-  ${colorModels.trackListColor.saturation(saturation, brightness)}%,
-  ${colorModels.trackListColor.brightness(brightness)}%
-)`;
-
-//Not Calculated
-const patternHeadColor = "#434F55";
-const patternBodyColor = measureCountColor;
-
-const accent1 = "#7DDB00";
-const accent2 = "#FF9F41";
-
-const tempoColor = "#BBBBBB";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [hue, setHue] = useState(0)
+  const [saturation, setSaturation] = useState(0)
+  const [brightness, setBrightness] = useState(0)
+
+    //Calculated
+  const bgColorLightest = `hsl(
+    ${198 + hue},
+    ${colorModels.bgcolorLightest.saturation(saturation, brightness)}%,
+    ${colorModels.bgcolorLightest.brightness(brightness)}%
+  )`;
+  const bgColorLight = `hsl(
+    ${198 + hue},
+    ${colorModels.bgcolorLight.saturation(saturation, brightness)}%,
+    ${colorModels.bgcolorLight.brightness(brightness)}%
+  )`;
+  const bgColor = `hsl(
+    ${198 + hue},
+    ${colorModels.bgColor.saturation(saturation, brightness)}%,
+    ${colorModels.bgColor.brightness(brightness)}%
+  )`;
+  const bgColorDark = `hsl(
+    ${198 + hue},
+    ${colorModels.bgcolorDark.saturation(saturation, brightness)}%,
+    ${colorModels.bgcolorDark.brightness(brightness)}%
+  )`;
+  const bgColorDarkest = `hsl(
+    ${198 + hue},
+    ${colorModels.bgcolorDarkest.saturation(saturation, brightness)}%,
+    ${colorModels.bgcolorDarkest.brightness(brightness)}%
+  )`;
+
+  const measureColor1 = `hsl(
+    ${198 + hue},
+    ${colorModels.measureColor1.saturation(saturation, brightness)}%,
+    ${colorModels.measureColor1.brightness(brightness)}%
+  )`;
+  const measureColor2 = `hsl(
+    ${198 + hue},
+    ${colorModels.measureColor2.saturation(saturation, brightness)}%,
+    ${colorModels.measureColor2.brightness(brightness)}%
+  )`;
+  const measureCountColor = `hsl(
+    ${198 + hue},
+    ${colorModels.bgcolorDarkest.saturation(saturation, brightness)}%,
+    ${colorModels.bgcolorDarkest.brightness(brightness)}%
+  )`;
+
+  const patternListColor = `hsl(
+    ${198 + hue},
+    ${colorModels.patternListColor.saturation(saturation, brightness)}%,
+    ${colorModels.patternListColor.brightness(brightness)}%
+  )`;
+  const trackListColor = `hsl(
+    ${198 + hue},
+    ${colorModels.trackListColor.saturation(saturation, brightness)}%,
+    ${colorModels.trackListColor.brightness(brightness)}%
+  )`;
+
+  //Not Calculated
+  const patternHeadColor = "#434F55";
+  const patternBodyColor = measureCountColor;
+
+  const accent1 = "#7DDB00";
+  const accent2 = "#FF9F41";
+
+  const tempoColor = "#BBBBBB";
+
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center" style={{ backgroundColor: `hsl(${hue+198}, ${((saturation+256)/512)*100}%, ${((brightness+256)/512)*100}%)` }}>
+    <div className="w-screen h-screen flex flex-col justify-center items-center" style={{ backgroundColor: bgColorDarkest}}>
       <div className="bg-slate-600 h-[60vh] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
@@ -223,8 +227,41 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-slate-500 aspect-video h-[30vh]">
-        <Slider color="#FF5555"></Slider>
+      <div className="aspect-video h-[30vh] flex flex-col justify-around items-center p-[5%]">
+        <Slider
+          min={0}
+          max={360}
+          value={hue}
+          onValueChange={(value) => {
+            if (typeof value === "number") {
+              setHue(value)
+            }
+          }}
+          color={`hsl(${hue + 198}, 100%, 50%)`}
+        />
+        <Slider
+          min={-256}
+          max={256}
+          value={saturation}
+          onValueChange={(value) => {
+            if (typeof value === "number") {
+              setSaturation(value)
+            }
+          }}
+          color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}
+        />
+        <Slider
+          min={-256}
+          max={256}
+          value={brightness}
+          onValueChange={(value) => {
+            if (typeof value === "number") {
+              setBrightness(value)
+            }
+          }}
+          color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}
+        />
+
       </div>
     </div>
   );
