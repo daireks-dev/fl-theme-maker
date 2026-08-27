@@ -6,6 +6,8 @@ import Color from "../../components/Color";
 import { colorModels } from "../../lib/colors";
 import { Slider } from "@/components/ui/slider";
 import { useEffect, useState } from "react";
+import SquareLabel from "@/components/webmidi/SquareLabel";
+import ColorButton from "@/components/webmidi/ColorButton";
 
 export default function Home() {
 
@@ -71,22 +73,13 @@ export default function Home() {
   const patternHeadColor = "#434F55";
   const patternBodyColor = measureCountColor;
 
-  const accent1 = "#7DDB00";
-  const accent2 = "#FF9F41";
+  const [accent1, setAccent1] = useState("#7DDB00");
+  const [accent2, setAccent2] = useState("#FF9F41");
 
   const tempoColor = "#BBBBBB";
 
-  //Set body color
-  useEffect(() => {
-    document.body.style.backgroundColor = bgColorDarkest
-
-    return () => {
-      document.body.style.backgroundColor = bgColorDarkest
-    }
-  }, [bgColorDarkest])
-
   return (
-    <div className="w-screen flex flex-col justify-center items-center gap-4 p-4" style={{ backgroundColor: bgColorDarkest}}>
+    <div className="bg-[#2C2C2C] w-screen flex flex-col justify-center items-center gap-4 p-4">
       <div className="bg-slate-600 h-[60vh] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
@@ -235,14 +228,30 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="aspect-video h-[60vh] flex flex-col justify-around items-center" style={{ backgroundColor: bgColorDark}}>
 
-      </div>
-
-      <div className="bg-slate-500 aspect-video h-[60vh] flex flex-col justify-around items-center">
-        <Slider min={0} max={360} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
-        <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
-        <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
+      <div className="bg-[#353535] w-[106.666vh] h-[28vh] flex flex-col justify-around items-center">
+        <div className="flex items-center flex-1 w-full ml-5 gap-2">
+          <SquareLabel text="bg_color"/>
+          <div className="w-[45%] h-[80%] flex flex-col justify-around">
+            <Slider min={0} max={360} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
+            <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
+            <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
+          </div>
+          <SquareLabel text="accents"/>
+          <ColorButton initialColor={accent1} onValueChange={(value) => setAccent1(value)}/>
+          <ColorButton initialColor={accent2} onValueChange={(value) => setAccent2(value)}/>
+        </div>
+        <div className="flex items-center flex-1 w-full ml-5 gap-2">
+          <SquareLabel text="note_colors"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor="#333333"/>
+        </div>
       </div>
     </div>
   );
