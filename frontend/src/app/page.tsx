@@ -232,7 +232,7 @@ export default function Home() {
       <div className="bg-[#353535] w-[106.666vh] h-[28vh] flex flex-col justify-around items-center">
         <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
           <SquareLabel text="bg_color"/>
-          <div className="w-[45%] h-[80%] flex flex-col justify-around">
+          <div className="w-[42.2%] h-[80%] flex flex-col justify-around">
             <Slider min={0} max={360} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
             <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
             <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
