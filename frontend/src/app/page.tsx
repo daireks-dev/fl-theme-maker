@@ -5,7 +5,7 @@ import Mask from "../../components/Mask";
 import Color from "../../components/Color";
 import { colorModels } from "../../lib/colors";
 import { Slider } from "@/components/ui/slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
@@ -76,8 +76,17 @@ export default function Home() {
 
   const tempoColor = "#BBBBBB";
 
+  //Set body color
+  useEffect(() => {
+    document.body.style.backgroundColor = bgColorDarkest
+
+    return () => {
+      document.body.style.backgroundColor = bgColorDarkest
+    }
+  }, [bgColorDarkest])
+
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center" style={{ backgroundColor: bgColorDarkest}}>
+    <div className="w-screen flex flex-col justify-center items-center gap-4 p-4" style={{ backgroundColor: bgColorDarkest}}>
       <div className="bg-slate-600 h-[60vh] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
@@ -227,41 +236,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="aspect-video h-[30vh] flex flex-col justify-around items-center p-[5%]">
-        <Slider
-          min={0}
-          max={360}
-          value={hue}
-          onValueChange={(value) => {
-            if (typeof value === "number") {
-              setHue(value)
-            }
-          }}
-          color={`hsl(${hue + 198}, 100%, 50%)`}
-        />
-        <Slider
-          min={-256}
-          max={256}
-          value={saturation}
-          onValueChange={(value) => {
-            if (typeof value === "number") {
-              setSaturation(value)
-            }
-          }}
-          color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}
-        />
-        <Slider
-          min={-256}
-          max={256}
-          value={brightness}
-          onValueChange={(value) => {
-            if (typeof value === "number") {
-              setBrightness(value)
-            }
-          }}
-          color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}
-        />
-
+      <div className="bg-slate-500 aspect-video h-[60vh] flex flex-col justify-around items-center">
+        <Slider min={0} max={360} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
+        <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
+        <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
       </div>
     </div>
   );
