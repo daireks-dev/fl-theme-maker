@@ -230,7 +230,7 @@ export default function Home() {
       </div>
 
       <div className="bg-[#353535] w-[106.666vh] h-[28vh] flex flex-col justify-around items-center">
-        <div className="flex items-center flex-1 w-full ml-5 gap-2">
+        <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
           <SquareLabel text="bg_color"/>
           <div className="w-[45%] h-[80%] flex flex-col justify-around">
             <Slider min={0} max={360} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
@@ -241,7 +241,7 @@ export default function Home() {
           <ColorButton initialColor={accent1} onValueChange={(value) => setAccent1(value)}/>
           <ColorButton initialColor={accent2} onValueChange={(value) => setAccent2(value)}/>
         </div>
-        <div className="flex items-center flex-1 w-full ml-5 gap-2">
+        <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
           <SquareLabel text="note_colors"/>
           <ColorButton initialColor="#333333"/>
           <ColorButton initialColor="#333333"/>

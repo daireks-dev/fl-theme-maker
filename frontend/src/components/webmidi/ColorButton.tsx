@@ -31,15 +31,17 @@ export default function ColorButton({initialColor, onValueChange}: ButtonProps) 
 
     return (
         <div className="relative h-[75%] aspect-square">
-            <button ref={buttonRef} onClick={() => setShowPicker((prev) => !prev)} style={{ backgroundColor: currentColor }} className="relative w-full h-full">
-                <div className="bg-black w-full h-full opacity-0 hover:opacity-30 transition flex justify-center items-center">
-                    <h1 className="font-bold text-slate-300 text-[min(1.5vh,1.5vw,1rem)]">{currentColor}</h1>
-                </div>
-            </button>
+            <div className="w-full h-full flex justify-center">
+                <button ref={buttonRef} onClick={() => setShowPicker((prev) => !prev)} style={{ backgroundColor: currentColor }} className="relative w-full h-full">
+                    <div className="bg-black w-full h-full opacity-0 hover:opacity-30 transition flex justify-center items-center">
+                        <h1 className="font-bold text-slate-300 text-[min(1.5vh,1.5vw,1rem)]">{currentColor}</h1>
+                    </div>
+                </button>
+            </div>
 
             {showPicker &&
             <div ref={pickerRef} className="absolute left-1/2 mt-2 -translate-x-1/2 z-50">
-                <HexColorPicker className="max-h-[21vw] max-w-[21vw] aspect-square" onChange={(newColor) => {
+                <HexColorPicker className="max-h-[21vh] max-w-[21vh] aspect-square" onChange={(newColor) => {
                     handleColorChange(newColor)
                 }}/>
             </div>}   
