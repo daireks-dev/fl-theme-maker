@@ -8,6 +8,8 @@ import { Slider } from "@/components/ui/slider";
 import { useEffect, useState } from "react";
 import SquareLabel from "@/components/webmidi/SquareLabel";
 import ColorButton from "@/components/webmidi/ColorButton";
+import ToggleButton from "@/components/webmidi/ToggleButton";
+
 
 export default function Home() {
 
@@ -78,8 +80,19 @@ export default function Home() {
 
   const tempoColor = "#BBBBBB";
 
+  //View Toggle
+  const [selectedMode, setSelectedMode] = useState("playlist")
+
   return (
     <div className="bg-[#2C2C2C] w-screen flex flex-col justify-center items-center gap-4 p-4">
+      <div className="bg-[#353535] w-[106.666vh] h-[7vh] flex items-center gap-[3vh]">
+        <h1 className="text-[#EEEEEE] ml-[1.2vh] text-[min(2.5vh,2.5vw,1rem)]">[FL Theme Maker]</h1>
+        <div className="flex h-[50%] w-[25%] items-center">
+          <ToggleButton text="playlist_view" toggled={selectedMode === "playlist"} onValueChange={() => setSelectedMode("playlist")}/>
+          <ToggleButton text="pianoroll_view" toggled={selectedMode === "pianoRoll"} onValueChange={() => setSelectedMode("pianoRoll")}/>
+        </div>
+      </div>
+
       <div className="bg-slate-600 h-[60vh] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
