@@ -235,6 +235,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="aspect-video h-[60vh] flex flex-col justify-around items-center" style={{ backgroundColor: bgColorDark}}>
+
+      </div>
 
       <div className="bg-slate-500 aspect-video h-[60vh] flex flex-col justify-around items-center">
         <Slider min={0} max={360} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
