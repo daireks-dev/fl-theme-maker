@@ -80,6 +80,15 @@ export default function Home() {
 
   const tempoColor = "#BBBBBB";
 
+  const [note1, setNote1] = useState("#555555");
+  const [note2, setNote2] = useState("#555555");
+  const [note3, setNote3] = useState("#555555");
+  const [note4, setNote4] = useState("#555555");
+  const [note5, setNote5] = useState("#555555");
+  const [note6, setNote6] = useState("#555555");
+  const [note7, setNote7] = useState("#555555");
+  const [note8, setNote8] = useState("#555555");
+
   //View Toggle
   const [selectedMode, setSelectedMode] = useState("playlist")
 
@@ -227,26 +236,47 @@ export default function Home() {
             <Color color={patternListColor} className="object-contain w-full h-full"/>
           </div>
           <div className="w-[1%] flex" style={{ backgroundColor: bgColor }}/>
-          <div className="bg-slate-400 w-[10%] flex relative">
-            {selectedMode === "playlist" && 
-              <div className="w-full h-full">
-                <Image src="/images/playlist_ui/Tracks.png" alt="" fill className="object-contain scale-y-101 z-1"/>
-                <Color color={trackListColor} className="object-contain w-full h-full"/>
-                <Mask src="/images/ui_masks/TrackButtons.png" color={accent1} className="object-contain scale-y-[1.017] translate-x-[0.5%]"/>
+          <div className="w-[88%] h-full flex" style={{ backgroundColor: bgColorDarkest }}>
+            {selectedMode === "pianoRoll" &&
+              <div className="relative w-full h-full">
+                <Mask src="/images/playlist_ui/RollOutline_1.png" color={bgColorDarkest} className="object-contain scale-x-[1.012] z-3"/>
+                <Mask src="/images/ui_masks/BlackKeyMask_1.png" color="#4C4D4F" className="object-contain scale-x-[1.012] z-2"/>
+                <Mask src="/images/ui_masks/WhiteKeyMask_1.png" color="#EBEFF7" className="object-contain scale-x-[1.012] z-2"/>
+                <Mask src="/images/ui_masks/CKeyMask_1.png" color="#CDD1D9" className="object-contain scale-x-[1.012] z-2"/>
+                <Mask src="/images/ui_masks/DarkBGMask_1.png" color={measureColor2} className="object-contain scale-x-[1.012] z-0"/>
+                <Mask src="/images/ui_masks/LightBGMask_1.png" color={measureColor1} className="object-contain scale-x-[1.012] z-0"/>
+                {note1 !== "#555555" && <Mask src="/images/ui_masks/Note1_1.png" color={note1} className="object-contain scale-x-[1.012] z-1"/>}
+                {note2 !== "#555555" && <Mask src="/images/ui_masks/Note2_1.png" color={note2} className="object-contain scale-x-[1.012] z-2"/>}
+                {note3 !== "#555555" && <Mask src="/images/ui_masks/Note3_1.png" color={note3} className="object-contain scale-x-[1.012] z-1"/>}
+                {note4 !== "#555555" && <Mask src="/images/ui_masks/Note4_1.png" color={note4} className="object-contain scale-x-[1.012] z-1"/>}
+                {note5 !== "#555555" && <Mask src="/images/ui_masks/Note5_1.png" color={note5} className="object-contain scale-x-[1.012] z-1"/>}
+                {note6 !== "#555555" && <Mask src="/images/ui_masks/Note6_1.png" color={note6} className="object-contain scale-x-[1.012] z-1"/>}
+                {note7 !== "#555555" && <Mask src="/images/ui_masks/Note7_1.png" color={note7} className="object-contain scale-x-[1.012] z-1"/>}
+                {note8 !== "#555555" && <Mask src="/images/ui_masks/Note8_1.png" color={note8} className="object-contain scale-x-[1.012] z-1"/>}
               </div>
             }
-          </div>
-          <div className="bg-slate-600 w-[78%] flex relative">
             {selectedMode === "playlist" && 
-              <div className="w-full h-full">
-                <Image src="/images/playlist_ui/Arrangement.png" alt="" fill className="object-contain scale-100 scale-x-[1.015] z-1"/>
-                <Mask src="/images/ui_masks/PlaylistMeasure1.png" color={measureColor1} className="object-contain scale-100 scale-x-[1.015]"/>
-                <Mask src="/images/ui_masks/PlaylistMeasure2.png" color={measureColor2} className="object-contain scale-100 scale-x-[1.015]"/>
-                <Mask src="/images/ui_masks/PatternContentMasks.png" color={patternBodyColor} className="object-contain scale-100 scale-x-[1.015]"/>
-                <Mask src="/images/ui_masks/PatternHeaderMask.png" color={patternHeadColor} className="object-contain scale-100 scale-x-[1.015]"/>
-              </div>
+            <div className="bg-slate-400 w-[11.37%] h-full flex relative">
+                <div className="w-full h-full">
+                  <Image src="/images/playlist_ui/Tracks.png" alt="" fill className="object-contain scale-y-101 z-1"/>
+                  <Color color={trackListColor} className="object-contain w-full h-full"/>
+                  <Mask src="/images/ui_masks/TrackButtons.png" color={accent1} className="object-contain scale-y-[1.017] translate-x-[0.5%]"/>
+                </div>
+            </div>
+            }
+            {selectedMode === "playlist" && 
+            <div className="bg-slate-600 w-[88.63%] flex relative">
+                <div className="w-full h-full">
+                  <Image src="/images/playlist_ui/Arrangement.png" alt="" fill className="object-contain scale-100 scale-x-[1.015] z-1"/>
+                  <Mask src="/images/ui_masks/PlaylistMeasure1.png" color={measureColor1} className="object-contain scale-100 scale-x-[1.015]"/>
+                  <Mask src="/images/ui_masks/PlaylistMeasure2.png" color={measureColor2} className="object-contain scale-100 scale-x-[1.015]"/>
+                  <Mask src="/images/ui_masks/PatternContentMasks.png" color={patternBodyColor} className="object-contain scale-100 scale-x-[1.015]"/>
+                  <Mask src="/images/ui_masks/PatternHeaderMask.png" color={patternHeadColor} className="object-contain scale-100 scale-x-[1.015]"/>
+                </div>
+            </div>
             }
           </div>
+          <div/>
         </div>
       </div>
 
@@ -264,14 +294,14 @@ export default function Home() {
         </div>
         <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
           <SquareLabel text="note_colors"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
-          <ColorButton initialColor="#333333"/>
+          <ColorButton initialColor={note1} onValueChange={(value) => setNote1(value)}/>
+          <ColorButton initialColor={note2} onValueChange={(value) => setNote2(value)}/>
+          <ColorButton initialColor={note3} onValueChange={(value) => setNote3(value)}/>
+          <ColorButton initialColor={note4} onValueChange={(value) => setNote4(value)}/>
+          <ColorButton initialColor={note5} onValueChange={(value) => setNote5(value)}/>
+          <ColorButton initialColor={note6} onValueChange={(value) => setNote6(value)}/>
+          <ColorButton initialColor={note7} onValueChange={(value) => setNote7(value)}/>
+          <ColorButton initialColor={note8} onValueChange={(value) => setNote8(value)}/>
         </div>
       </div>
     </div>
