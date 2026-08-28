@@ -87,7 +87,7 @@ export default function Home() {
     <div className="bg-[#2C2C2C] w-screen flex flex-col justify-center items-center gap-4 p-4">
       <div className="bg-[#353535] w-[106.666vh] h-[7vh] flex items-center gap-[3vh]">
         <h1 className="text-[#EEEEEE] ml-[1.2vh] text-[min(2.5vh,2.5vw,1rem)]">[FL Theme Maker]</h1>
-        <div className="flex h-[50%] w-[25%] items-center">
+        <div className="flex h-[50%] w-[25%] items-center gap-[1vh]">
           <ToggleButton text="playlist_view" toggled={selectedMode === "playlist"} onValueChange={() => setSelectedMode("playlist")}/>
           <ToggleButton text="pianoroll_view" toggled={selectedMode === "pianoRoll"} onValueChange={() => setSelectedMode("pianoRoll")}/>
         </div>
@@ -228,16 +228,24 @@ export default function Home() {
           </div>
           <div className="w-[1%] flex" style={{ backgroundColor: bgColor }}/>
           <div className="bg-slate-400 w-[10%] flex relative">
-            <Image src="/images/playlist_ui/Tracks.png" alt="" fill className="object-contain scale-y-101 z-1"/>
-            <Color color={trackListColor} className="object-contain w-full h-full"/>
-            <Mask src="/images/ui_masks/TrackButtons.png" color={accent1} className="object-contain scale-y-[1.017] translate-x-[0.5%]"/>
+            {selectedMode === "playlist" && 
+              <div className="w-full h-full">
+                <Image src="/images/playlist_ui/Tracks.png" alt="" fill className="object-contain scale-y-101 z-1"/>
+                <Color color={trackListColor} className="object-contain w-full h-full"/>
+                <Mask src="/images/ui_masks/TrackButtons.png" color={accent1} className="object-contain scale-y-[1.017] translate-x-[0.5%]"/>
+              </div>
+            }
           </div>
           <div className="bg-slate-600 w-[78%] flex relative">
-            <Image src="/images/playlist_ui/Arrangement.png" alt="" fill className="object-contain scale-100 scale-x-[1.015] z-1"/>
-            <Mask src="/images/ui_masks/PlaylistMeasure1.png" color={measureColor1} className="object-contain scale-100 scale-x-[1.015]"/>
-            <Mask src="/images/ui_masks/PlaylistMeasure2.png" color={measureColor2} className="object-contain scale-100 scale-x-[1.015]"/>
-            <Mask src="/images/ui_masks/PatternContentMasks.png" color={patternBodyColor} className="object-contain scale-100 scale-x-[1.015]"/>
-            <Mask src="/images/ui_masks/PatternHeaderMask.png" color={patternHeadColor} className="object-contain scale-100 scale-x-[1.015]"/>
+            {selectedMode === "playlist" && 
+              <div className="w-full h-full">
+                <Image src="/images/playlist_ui/Arrangement.png" alt="" fill className="object-contain scale-100 scale-x-[1.015] z-1"/>
+                <Mask src="/images/ui_masks/PlaylistMeasure1.png" color={measureColor1} className="object-contain scale-100 scale-x-[1.015]"/>
+                <Mask src="/images/ui_masks/PlaylistMeasure2.png" color={measureColor2} className="object-contain scale-100 scale-x-[1.015]"/>
+                <Mask src="/images/ui_masks/PatternContentMasks.png" color={patternBodyColor} className="object-contain scale-100 scale-x-[1.015]"/>
+                <Mask src="/images/ui_masks/PatternHeaderMask.png" color={patternHeadColor} className="object-contain scale-100 scale-x-[1.015]"/>
+              </div>
+            }
           </div>
         </div>
       </div>
