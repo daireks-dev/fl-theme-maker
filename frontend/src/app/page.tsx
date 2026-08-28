@@ -10,6 +10,7 @@ import SquareLabel from "@/components/webmidi/SquareLabel";
 import ColorButton from "@/components/webmidi/ColorButton";
 import ToggleButton from "@/components/webmidi/ToggleButton";
 import ExportButton from "@/components/webmidi/ExportButton";
+import SquareSpacer from "@/components/webmidi/SquareSpacer";
 
 
 export default function Home() {
@@ -129,8 +130,8 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-[#2C2C2C] w-screen flex flex-col justify-center items-center gap-[1vh] p-[1vh]" style={{ "--accent-color": accent1} as React.CSSProperties}>
-      <div className="bg-[#353535] w-[95vh] h-[6vh] flex items-center gap-[3vh]">
+    <div className="bg-[#2C2C2C] w-screen min-h-dvh flex flex-col justify-center items-center gap-[1vh] p-[1vh]" style={{ "--accent-color": accent1} as React.CSSProperties}>
+      <div className="bg-[#353535] w-[min(95vh,calc(100vw-2vh))] h-[min(6vh,6vw)] flex items-center gap-[3vh]">
         <h1 className="text-[#EEEEEE] ml-[1.2vh] text-[min(2.5vh,2.5vw,1.5rem)]">[FL Theme Maker]</h1>
         <div className="flex flex-1 h-[50%] w-[25%] items-center gap-[1vh]">
           <ToggleButton text="playlist_view" toggled={selectedMode === "playlist"} color={accent2} onValueChange={() => setSelectedMode("playlist")}/>
@@ -142,7 +143,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-slate-600 w-[95vh] aspect-video flex-row">
+      <div className="bg-slate-600 w-[min(95vh,calc(100vw-2vh))] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
             <div className="m-[0.25%] flex-1 relative" style={{ backgroundColor: bgColorLight }}>
@@ -320,10 +321,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#353535] w-[95vh] h-[25vh] flex flex-col justify-around items-center z-1">
-        <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
+      <div className="bg-[#353535] w-[min(95vh,calc(100vw-2vh))] h-[min(25vh,26vw)] flex flex-col justify-around items-center p-0.5 z-1">
+        <div className="flex items-center flex-1 w-full justify-around">
           <SquareLabel text="bg_color"/>
-          <div className="w-[42.6%] h-[80%] flex flex-col justify-around">
+          <div className="w-[42.8%] h-[80%] flex flex-col justify-around">
             <Slider min={-180} max={180} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}} color={`hsl(${hue + 198}, 100%, 50%)`}/>
             <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
             <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
@@ -331,8 +332,9 @@ export default function Home() {
           <SquareLabel text="accents"/>
           <ColorButton initialColor={accent1} onValueChange={(value) => setAccent1(value)}/>
           <ColorButton initialColor={accent2} onValueChange={(value) => setAccent2(value)}/>
+          <SquareSpacer isVisible={false}/>
         </div>
-        <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
+        <div className="flex items-center flex-1 w-full justify-around">
           <SquareLabel text="note_colors"/>
           <ColorButton initialColor={note1} onValueChange={(value) => setNote1(value)}/>
           <ColorButton initialColor={note2} onValueChange={(value) => setNote2(value)}/>
@@ -345,15 +347,15 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-[95vh] h-[30vh] flex items-end z-1 pointer-events-none">
-          <div className="bg-gradient-to-t from-[#222222] to-transparent w-full h-[25%] flex items-end justify-around pb-[1vh]">
-            <h1 className="text-[#555555] text-[1.7vh] z-1">created by: daireks</h1>
-            <a href="https://github.com/daireks-dev/fl-theme-maker" target="_blank" rel="noopener noreferrer" className="text-[#555555] text-[1.7vh] z-1 pointer-events-auto hover:text-[var(--accent-color)] transition-colors">[github link]</a>
-            <a href="https://www.youtube.com/@daireks" target="_blank" rel="noopener noreferrer" className="text-[#555555] text-[1.7vh] z-1 pointer-events-auto hover:text-[var(--accent-color)] transition-colors">[youtube channel]</a>
-          </div>
+      <div className="w-[min(95vh,calc(100vw-2vh))] h-50"/>
+
+      <div className="bg-gradient-to-t from-[#222222] to-transparent w-[min(95vh,calc(100vw-2vh))] h-[min(5vh,10vw)] flex justify-around items-end z-1 pointer-events-none mt-auto p-[0.5vh]">
+          <h1 className="text-[#555555] text-[1.5vh] z-1">created by: daireks</h1>
+          <a href="https://github.com/daireks-dev/fl-theme-maker" target="_blank" rel="noopener noreferrer" className="text-[#555555] text-[1.5vh] z-1 pointer-events-auto hover:text-[var(--accent-color)] transition-colors">[github link]</a>
+          <a href="https://www.youtube.com/@daireks" target="_blank" rel="noopener noreferrer" className="text-[#555555] text-[1.5vh] z-1 pointer-events-auto hover:text-[var(--accent-color)] transition-colors">[youtube channel]</a>
       </div>
       
-      <div className="bg-gradient-to-t from-[#111111] to-transparent fixed bottom-0 left-0 w-full h-[50vh] pointer-events-none z-0"/>
+      <div className="bg-gradient-to-t from-[#111111] to-transparent fixed bottom-0 left-0 w-full h-[min(50vh,50vw)] pointer-events-none z-0"/>
     </div>
   );
 }

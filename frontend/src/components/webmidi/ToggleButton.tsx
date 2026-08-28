@@ -26,7 +26,7 @@ export default function ToggleButton({
             style={toggled ? { borderColor: color, color: color } : undefined}
         >
             <div className="w-full h-full flex justify-center items-center">
-                <h1 className="font-bold text-[min(1.5vh,1.5vw,1rem)]">
+                <h1 className="font-bold text-[min(1.3vh,1.3vw,1rem)]">
                     {text}
                 </h1>
             </div>
