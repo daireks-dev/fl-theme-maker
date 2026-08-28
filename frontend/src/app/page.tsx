@@ -105,7 +105,7 @@ export default function Home() {
   }
   
   const saveTheme = () => {
-      const content = `Hue=${hue}\nSaturation=${saturation}\nLightness=${brightness}\nSelected=${hexToBgr(accent1)}\nHighlight=${hexToBgr(accent2)}\nMute=${hexToBgr(accent1)}\nNoteColor0=${hexToBgr(note1)}\nNoteColor1=${hexToBgr(note2)}\nNoteColor2=${hexToBgr(note3)}\nNoteColor3=${hexToBgr(note4)}\nNoteColor4=${hexToBgr(note5)}\nNoteColor5=${hexToBgr(note6)}\nNoteColor6=${hexToBgr(note7)}\nNoteColor7=${hexToBgr(note8)}`
+      const content = `Hue=${-hue}\nSaturation=${saturation}\nLightness=${brightness}\nSelected=${hexToBgr(accent1)}\nHighlight=${hexToBgr(accent2)}\nMute=${hexToBgr(accent1)}\nNoteColor0=${hexToBgr(note1)}\nNoteColor1=${hexToBgr(note2)}\nNoteColor2=${hexToBgr(note3)}\nNoteColor3=${hexToBgr(note4)}\nNoteColor4=${hexToBgr(note5)}\nNoteColor5=${hexToBgr(note6)}\nNoteColor6=${hexToBgr(note7)}\nNoteColor7=${hexToBgr(note8)}`
 
       const blob = new Blob([content], { type: "text/plain" })
       const url = URL.createObjectURL(blob)
@@ -314,7 +314,7 @@ export default function Home() {
         <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
           <SquareLabel text="bg_color"/>
           <div className="w-[42.2%] h-[80%] flex flex-col justify-around">
-            <Slider min={-180} max={180} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}}color={`hsl(${hue + 198}, 100%, 50%)`}/>
+            <Slider min={-180} max={180} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}} color={`hsl(${hue + 198}, 100%, 50%)`}/>
             <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
             <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
           </div>
