@@ -41,7 +41,7 @@ export default function ColorButton({initialColor, onValueChange}: ButtonProps) 
 
             {showPicker &&
             <div ref={pickerRef} className="absolute left-1/2 mt-2 -translate-x-1/2 z-50">
-                <HexColorPicker className="max-h-[21vh] max-w-[21vh] aspect-square" onChange={(newColor) => {
+                <HexColorPicker className="max-h-[21vh] max-w-[21vh] aspect-square z-50" onChange={(newColor) => {
                     handleColorChange(newColor)
                 }}/>
             </div>}   

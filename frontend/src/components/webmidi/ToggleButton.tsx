@@ -1,12 +1,14 @@
 interface ToggleButtonProps {
     text: string
     toggled: boolean
+    color: string
     onValueChange?: (toggled: boolean) => void
 }
 
 export default function ToggleButton({
     text,
     toggled,
+    color,
     onValueChange,
 }: ToggleButtonProps) {
     const handleClick = () => {
@@ -14,7 +16,15 @@ export default function ToggleButton({
     }
 
     return (
-        <button onClick={handleClick} className={`h-full w-full border ${toggled ? "border-blue-500 text-blue-500" : "border-slate-500 text-slate-300"}`}>
+        <button
+            onClick={handleClick}
+            className={`h-full w-full border ${
+                toggled
+                    ? "border-transparent"
+                    : "border-[#555555] text-slate-300"
+            }`}
+            style={toggled ? { borderColor: color, color: color } : undefined}
+        >
             <div className="w-full h-full flex justify-center items-center">
                 <h1 className="font-bold text-[min(1.5vh,1.5vw,1rem)]">
                     {text}

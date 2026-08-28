@@ -103,28 +103,38 @@ export default function Home() {
 
     return parseInt(`${b}${g}${r}`, 16) 
   }
+
+  function hexToRgb(hex: string): number {
+    const cleanHex = hex.replace("#", "")
+
+    const r = cleanHex.slice(0, 2)
+    const g = cleanHex.slice(2, 4)
+    const b = cleanHex.slice(4, 6)
+
+    return parseInt(`${r}${g}${b}`, 16)
+  }
   
   const saveTheme = () => {
-      const content = `Hue=${-hue}\nSaturation=${saturation}\nLightness=${brightness}\nSelected=${hexToBgr(accent1)}\nHighlight=${hexToBgr(accent2)}\nMute=${hexToBgr(accent1)}\nNoteColor0=${hexToBgr(note1)}\nNoteColor1=${hexToBgr(note2)}\nNoteColor2=${hexToBgr(note3)}\nNoteColor3=${hexToBgr(note4)}\nNoteColor4=${hexToBgr(note5)}\nNoteColor5=${hexToBgr(note6)}\nNoteColor6=${hexToBgr(note7)}\nNoteColor7=${hexToBgr(note8)}`
+      const content = `Hue=${-hue}\nSaturation=${saturation}\nLightness=${brightness}\nSelected=${hexToRgb(accent1)}\nHighlight=${hexToBgr(accent2)}\nMute=${hexToBgr(accent1)}\nNoteColor0=${hexToBgr(note1)}\nNoteColor1=${hexToBgr(note2)}\nNoteColor2=${hexToBgr(note3)}\nNoteColor3=${hexToBgr(note4)}\nNoteColor4=${hexToBgr(note5)}\nNoteColor5=${hexToBgr(note6)}\nNoteColor6=${hexToBgr(note7)}\nNoteColor7=${hexToBgr(note8)}`
 
       const blob = new Blob([content], { type: "text/plain" })
       const url = URL.createObjectURL(blob)
 
       const link = document.createElement("a")
       link.href = url
-      link.download = "epic.flstheme"
+      link.download = "theme.flstheme"
       link.click()
 
       URL.revokeObjectURL(url)
   }
 
   return (
-    <div className="bg-[#2C2C2C] w-screen flex flex-col justify-center items-center gap-4 p-4">
-      <div className="bg-[#353535] w-[106.666vh] h-[7vh] flex items-center gap-[3vh]">
+    <div className="bg-[#2C2C2C] w-screen flex flex-col justify-center items-center gap-[1vh] p-[1vh]" style={{ "--accent-color": accent1} as React.CSSProperties}>
+      <div className="bg-[#353535] w-[95vh] h-[6vh] flex items-center gap-[3vh]">
         <h1 className="text-[#EEEEEE] ml-[1.2vh] text-[min(2.5vh,2.5vw,1.5rem)]">[FL Theme Maker]</h1>
         <div className="flex flex-1 h-[50%] w-[25%] items-center gap-[1vh]">
-          <ToggleButton text="playlist_view" toggled={selectedMode === "playlist"} onValueChange={() => setSelectedMode("playlist")}/>
-          <ToggleButton text="pianoroll_view" toggled={selectedMode === "pianoRoll"} onValueChange={() => setSelectedMode("pianoRoll")}/>
+          <ToggleButton text="playlist_view" toggled={selectedMode === "playlist"} color={accent2} onValueChange={() => setSelectedMode("playlist")}/>
+          <ToggleButton text="pianoroll_view" toggled={selectedMode === "pianoRoll"} color={accent2} onValueChange={() => setSelectedMode("pianoRoll")}/>
         </div>
         <div className="h-[50%] w-[30%] flex-1"/>
         <div className="h-[50%] w-[10%] flex flex-1 justify-center items-center">
@@ -132,7 +142,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-slate-600 h-[60vh] aspect-video flex-row">
+      <div className="bg-slate-600 w-[95vh] aspect-video flex-row">
         <div className="bg-slate-600 w-full h-[15%] flex-row">
           <div className="w-full h-[50%] flex" style={{ backgroundColor: bgColor }}>
             <div className="m-[0.25%] flex-1 relative" style={{ backgroundColor: bgColorLight }}>
@@ -310,10 +320,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#353535] w-[106.666vh] h-[28vh] flex flex-col justify-around items-center">
+      <div className="bg-[#353535] w-[95vh] h-[25vh] flex flex-col justify-around items-center z-1">
         <div className="flex items-center flex-1 w-full ml-[3vh] gap-[1vh]">
           <SquareLabel text="bg_color"/>
-          <div className="w-[42.2%] h-[80%] flex flex-col justify-around">
+          <div className="w-[42.6%] h-[80%] flex flex-col justify-around">
             <Slider min={-180} max={180} value={hue} onValueChange={(value) => {if (typeof value === "number") {setHue(value)}}} color={`hsl(${hue + 198}, 100%, 50%)`}/>
             <Slider min={-256} max={256} value={saturation} onValueChange={(value) => {if (typeof value === "number") {setSaturation(value)}}} color={`hsl(${hue + 198}, ${((saturation+256)/512)*100}%, 50%)`}/>
             <Slider min={-256} max={256} value={brightness} onValueChange={(value) => {if (typeof value === "number") {setBrightness(value)}}} color={`hsl(0, 0%, ${((brightness+256)/512)*100}%)`}/>
@@ -334,6 +344,16 @@ export default function Home() {
           <ColorButton initialColor={note8} onValueChange={(value) => setNote8(value)}/>
         </div>
       </div>
+
+      <div className="w-[95vh] h-[30vh] flex items-end z-1 pointer-events-none">
+          <div className="bg-gradient-to-t from-[#222222] to-transparent w-full h-[25%] flex items-end justify-around pb-[1vh]">
+            <h1 className="text-[#555555] text-[1.7vh] z-1">created by: daireks</h1>
+            <a href="https://github.com/daireks-dev/fl-theme-maker" target="_blank" rel="noopener noreferrer" className="text-[#555555] text-[1.7vh] z-1 pointer-events-auto hover:text-[var(--accent-color)] transition-colors">[github link]</a>
+            <a href="https://www.youtube.com/@daireks" target="_blank" rel="noopener noreferrer" className="text-[#555555] text-[1.7vh] z-1 pointer-events-auto hover:text-[var(--accent-color)] transition-colors">[youtube channel]</a>
+          </div>
+      </div>
+      
+      <div className="bg-gradient-to-t from-[#111111] to-transparent fixed bottom-0 left-0 w-full h-[50vh] pointer-events-none z-0"/>
     </div>
   );
 }
