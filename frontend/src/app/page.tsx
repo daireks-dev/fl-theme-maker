@@ -6,11 +6,11 @@ import Color from "../../components/Color";
 import { colorModels } from "../../lib/colors";
 import { Slider } from "@/components/ui/slider";
 import { useEffect, useState } from "react";
-import SquareLabel from "@/components/webmidi/SquareLabel";
-import ColorButton from "@/components/webmidi/ColorButton";
-import ToggleButton from "@/components/webmidi/ToggleButton";
-import ExportButton from "@/components/webmidi/ExportButton";
-import SquareSpacer from "@/components/webmidi/SquareSpacer";
+import SquareLabel from "@/components/flstheme-components/SquareLabel";
+import ColorButton from "@/components/flstheme-components/ColorButton";
+import ToggleButton from "@/components/flstheme-components/ToggleButton";
+import ExportButton from "@/components/flstheme-components/ExportButton";
+import SquareSpacer from "@/components/flstheme-components/SquareSpacer";
 
 
 export default function Home() {
@@ -123,7 +123,7 @@ export default function Home() {
 
       const link = document.createElement("a")
       link.href = url
-      link.download = "theme.flstheme"
+      link.download = "theme.txt"
       link.click()
 
       URL.revokeObjectURL(url)
@@ -286,14 +286,14 @@ export default function Home() {
                 <Mask src="/images/ui_masks/CKeyMask_1.png" color="#CDD1D9" className="object-contain scale-x-[1.012] z-2"/>
                 <Mask src="/images/ui_masks/DarkBGMask_1.png" color={measureColor2} className="object-contain scale-x-[1.012] z-0"/>
                 <Mask src="/images/ui_masks/LightBGMask_1.png" color={measureColor1} className="object-contain scale-x-[1.012] z-0"/>
-                {note1 !== "#555555" && <Mask src="/images/ui_masks/Note1_1.png" color={note1} className="object-contain scale-x-[1.012] z-1"/>}
-                {note2 !== "#555555" && <Mask src="/images/ui_masks/Note2_1.png" color={note2} className="object-contain scale-x-[1.012] z-2"/>}
-                {note3 !== "#555555" && <Mask src="/images/ui_masks/Note3_1.png" color={note3} className="object-contain scale-x-[1.012] z-1"/>}
-                {note4 !== "#555555" && <Mask src="/images/ui_masks/Note4_1.png" color={note4} className="object-contain scale-x-[1.012] z-1"/>}
-                {note5 !== "#555555" && <Mask src="/images/ui_masks/Note5_1.png" color={note5} className="object-contain scale-x-[1.012] z-1"/>}
-                {note6 !== "#555555" && <Mask src="/images/ui_masks/Note6_1.png" color={note6} className="object-contain scale-x-[1.012] z-1"/>}
-                {note7 !== "#555555" && <Mask src="/images/ui_masks/Note7_1.png" color={note7} className="object-contain scale-x-[1.012] z-1"/>}
-                {note8 !== "#555555" && <Mask src="/images/ui_masks/Note8_1.png" color={note8} className="object-contain scale-x-[1.012] z-1"/>}
+                {note1 !== "#555555" && <Mask src="/images/ui_masks/Note1_1.png" color={note1} className="object-contain scale-x-[1.012] z-5"/>}
+                {note2 !== "#555555" && <Mask src="/images/ui_masks/Note2_1.png" color={note2} className="object-contain scale-x-[1.012] z-5"/>}
+                {note3 !== "#555555" && <Mask src="/images/ui_masks/Note3_1.png" color={note3} className="object-contain scale-x-[1.012] z-5"/>}
+                {note4 !== "#555555" && <Mask src="/images/ui_masks/Note4_1.png" color={note4} className="object-contain scale-x-[1.012] z-5"/>}
+                {note5 !== "#555555" && <Mask src="/images/ui_masks/Note5_1.png" color={note5} className="object-contain scale-x-[1.012] z-5"/>}
+                {note6 !== "#555555" && <Mask src="/images/ui_masks/Note6_1.png" color={note6} className="object-contain scale-x-[1.012] z-5"/>}
+                {note7 !== "#555555" && <Mask src="/images/ui_masks/Note7_1.png" color={note7} className="object-contain scale-x-[1.012] z-5"/>}
+                {note8 !== "#555555" && <Mask src="/images/ui_masks/Note8_1.png" color={note8} className="object-contain scale-x-[1.012] z-5"/>}
               </div>
             }
             {selectedMode === "playlist" && 
